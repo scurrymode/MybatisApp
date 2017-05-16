@@ -13,7 +13,7 @@ public class EmpDAO {
 	public List select(){
 		List list = null;
 		SqlSession session = manager.getSession();
-		list = session.selectList("Emp.selectAll");
+		list = session.selectList("Emp.empDeptJoin");
 		manager.close(session);
 		return list;
 	}

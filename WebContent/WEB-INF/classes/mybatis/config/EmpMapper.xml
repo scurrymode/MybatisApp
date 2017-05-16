@@ -3,6 +3,25 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Emp"> <!--  유일성을 주기 위한 이름 뭘로 해줘도 상관없지만 -->
+	<resultMap type="Emp" id="myMap">
+		<result column="empno" property="empno"/>
+		<result column="ename" property="ename"/>
+		<result column="job" property="job"/>
+		<result column="mgr" property="mgr"/>
+		<result column="hiredate" property="hiredate"/>
+		<result column="sal" property="sal"/>
+		<result column="comm" property="comm"/>
+		<association property="dept" column="deptno" javaType="Dept" select="selectDept"/>
+	</resultMap>
+	
+	<select id="selectDept" resultType="Dept">
+		select * from dept where deptno=#{deptno}
+	</select>
+	
+	<select id="empDeptJoin" resultMap="myMap">
+		select * from emp
+	</select>
+	
 	<sql id="basic">
 		select * from emp
 	</sql>

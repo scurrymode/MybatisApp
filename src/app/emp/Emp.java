@@ -9,6 +9,7 @@ public class Emp {
 	private int sal;
 	private int comm;
 	private int deptno;
+	private Dept dept;
 	
 	public int getEmpno() {
 		return empno;
@@ -57,6 +58,12 @@ public class Emp {
 	}
 	public void setDeptno(int deptno) {
 		this.deptno = deptno;
+	}
+	public Dept getDept() {
+		return dept;
+	}
+	public void setDept(Dept dept) {
+		this.dept = dept;
 	}
 	
 	
